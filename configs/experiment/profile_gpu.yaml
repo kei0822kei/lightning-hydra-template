@@ -1,0 +1,21 @@
+# @package _global_
+
+# to execute this experiment run:
+# python train.py experiment=profile_gpu
+
+defaults:
+  - override /trainer: gpu
+  - override /logger: ["tensorboard"]
+
+# all parameters below will be merged with parameters from default configurations set above
+# this allows you to overwrite only specified parameters
+
+trainer:
+  max_epochs: 3
+  profiler: "pytorch"
+  enable_checkpointing: False
+
+callbacks:
+  model_checkpoint: null
+
+test: False
